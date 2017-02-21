@@ -31,6 +31,8 @@ public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
 	private JButton thirdButton, fourthButton;
+	private JButton fifthButton, sixthButton, sevenbutton, eightbutton, nbutton, mbutton, obutton;
+	private JButton pbutton, qbutton,wbutton, ebutton, rbutton, tbutton, ybutton, ubutton, ibutton;
 	
 	private JPanel quizPanel;
 	int score = 0;
@@ -62,25 +64,48 @@ public class Jeopardy implements ActionListener {
 	// 7. Add the firstButton to the quizPanel
 		quizPanel.add(firstButton);
 		// 8. Write the code inside the createButton() method below. Check that your game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
-		
+	
 		// 9. Use the secondButton variable to hold a button using the createButton method
 		secondButton = createButton("$400");
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
 		thirdButton = createButton("$600");
 		fourthButton = createButton("$800");
+		fifthButton = createButton("$1");
+		sixthButton = createButton("$2");
+		sevenbutton = createButton("$3");
+		eightbutton = createButton("$4");
+		nbutton = createButton("$5");
+		mbutton = createButton("$6");
+		obutton = createButton("$7");
 		quizPanel.add(thirdButton);
 		quizPanel.add(fourthButton);
+		quizPanel.add(fifthButton);
+		quizPanel.add(sixthButton);
+		quizPanel.add(sevenbutton);
+		quizPanel.add(eightbutton);
+		quizPanel.add(nbutton);
+		quizPanel.add(mbutton);
+		quizPanel.add(obutton);
 		
 		// 11. Add action listeners to the buttons (2 lines of code)
 		secondButton.addActionListener(this);
 		firstButton.addActionListener(this);
 		thirdButton.addActionListener(this);
 		fourthButton.addActionListener(this);
+		fifthButton.addActionListener(this);
+		sixthButton.addActionListener(this);
+		sevenbutton.addActionListener(this);
+		eightbutton.addActionListener(this);
+		nbutton.addActionListener(this);
+		mbutton.addActionListener(this);
+		obutton.addActionListener(this);
+	
+		
 		// 12. Fill in the actionPerformed() method below
 		
 		frame.pack();
-		quizPanel.setLayout(new GridLayout(buttonCount+1, 3));
+		quizPanel.setLayout(new GridLayout(buttonCount+3, 3));
 		frame.add(makeScorePanel(), BorderLayout.NORTH);
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().height, Toolkit.getDefaultToolkit().getScreenSize().width);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -111,7 +136,10 @@ public class Jeopardy implements ActionListener {
 		
 
 		// Use the method that plays the jeopardy theme music.
+	
 		playJeopardyTheme();
+		playSound("58277__benboncan__cow.wav");
+		
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
 		if(buttonPressed==firstButton){
@@ -183,6 +211,18 @@ public void playJeopardyTheme() {
 			ex.printStackTrace();
 		}
 	}
+
+
+public void playTheme() {
+	try {
+		AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("58277__benboncan__cow.wav"));
+		Clip clip = AudioSystem.getClip();
+		clip.open(audioInputStream);
+		clip.start();
+	} catch (Exception ex) {
+		ex.printStackTrace();
+	}
+}
 
 	private void playSound(String fileName) {
 		AudioClip scream = JApplet.newAudioClip(getClass().getResource(fileName));
