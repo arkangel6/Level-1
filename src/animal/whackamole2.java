@@ -31,7 +31,7 @@ JPanel panel = new JPanel();
 		frame.setVisible(true);
 		frame.setSize(300, 400);
 		frame.add(panel);
-		for (int i = 0; i < 24; i++) {
+		for (int i = 1; i < 25; i++) {
 			button = new JButton();
 			button.addActionListener(this);
 			panel.add(button);
