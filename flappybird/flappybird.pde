@@ -56,14 +56,9 @@ void draw() {
       println("gameover");
       fill(0, 30, 40);
       rect(20, 500, 100, 10);
-      text("gameover", 250, 250);
     }
   }
 }
-
-
-
-
 
 void mousePressed() {
 
